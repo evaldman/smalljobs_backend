@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   resources :jobs
   resources :users
 
+  post '/login', to: 'users#login'
+  post '/signup', to: 'users#signup'
+  
 end

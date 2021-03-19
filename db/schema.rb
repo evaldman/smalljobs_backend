@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2021_03_18_153124) do
     t.string "description"
     t.integer "length"
     t.integer "pay"
-    t.string "skills_req"
+    t.datetime "date"
     t.boolean "status"
     t.boolean "completed"
     t.bigint "user_id", null: false
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_03_18_153124) do
     t.string "password_digest"
     t.string "bio"
     t.string "image"
-    t.string "type"
+    t.string "purpose"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
