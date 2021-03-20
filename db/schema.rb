@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2021_03_18_153124) do
 
   create_table "accepted_jobs", force: :cascade do |t|
     t.boolean "completed"
-    t.boolean "expected_pay"
     t.bigint "job_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -47,7 +46,7 @@ ActiveRecord::Schema.define(version: 2021_03_18_153124) do
     t.integer "length"
     t.integer "pay"
     t.datetime "date"
-    t.boolean "status"
+    t.boolean "accept_status"
     t.boolean "completed"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

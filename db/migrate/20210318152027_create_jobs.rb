@@ -6,7 +6,7 @@ class CreateJobs < ActiveRecord::Migration[6.1]
       t.integer :length
       t.integer :pay
       t.datetime :date
-      t.boolean :status
+      t.boolean :accept_status
       t.boolean :completed
       t.belongs_to :user, null: false, foreign_key: true
 
