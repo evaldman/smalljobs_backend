@@ -10,4 +10,8 @@ class User < ApplicationRecord
     def accepted
         self.accepted_jobs.map{|accepted| accepted.job}.flatten
     end
+
+    def posted
+        self.jobs
+    end
 end

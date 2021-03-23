@@ -6,16 +6,21 @@ class AcceptedJobsController < ApplicationController
     end
 
     def create
-        accepted_job = AcceptedJob.create(accepted_params)
-        render json: accepted_job
+        accepted_job = AcceptedJob.create(completed: accepted_params[:completed], job_id:  accepted_params[:job_id], user_id: accepted_params[:user_id],)
+        user = User.find(accepted_params[:user_id])
+        job = Job.find(accepted_params[:job_id])
+        job.update(accept_status: accepted_params[:accept_status])
+        render json: {job: JobSerializer.new(job), currentUser: UserSerializer.new(user)}
+        
     end
 
     def destroy
         accepted_job = AcceptedJob.find(params[:id])
+        
         accepted_job.delete
     end
 
     def accepted_params
-        params.permit(:completed, :job_id, :user_id)
+        params.permit(:completed, :job_id, :user_id, :accept_status)
     end
 end

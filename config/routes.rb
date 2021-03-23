@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#signup'
   get "/me", to: "users#show"
   patch "/me", to: "users#update"
-  
+
+ 
+
 end

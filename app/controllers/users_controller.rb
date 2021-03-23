@@ -29,6 +29,7 @@ class UsersController < ApplicationController
 
     def update
         @current_user.update(name: params[:name], bio: params[:bio], image: params[:image], purpose: params[:purpose])
+        render json: user
     end
 
     def destroy
