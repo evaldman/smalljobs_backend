@@ -16,8 +16,11 @@ class AcceptedJobsController < ApplicationController
 
     def destroy
         accepted_job = AcceptedJob.find(params[:id])
-        
+        user = User.find(accepted_params[:user_id])
+        job = Job.find(accepted_params[:job_id])
+        job.update(accept_status: accepted_params[:accept_status])
         accepted_job.delete
+        render json:{job: JobSerializer.new(job), currentUser: UserSerializer.new(user)}
     end
 
     def accepted_params
