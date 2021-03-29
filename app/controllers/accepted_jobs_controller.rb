@@ -26,4 +26,5 @@ class AcceptedJobsController < ApplicationController
     def accepted_params
         params.permit(:completed, :job_id, :user_id, :accept_status)
     end
+
 end

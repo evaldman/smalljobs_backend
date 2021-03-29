@@ -14,4 +14,5 @@ class User < ApplicationRecord
     def posted
         self.jobs
     end
+    
 end
