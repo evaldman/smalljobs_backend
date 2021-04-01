@@ -11,9 +11,14 @@ class JobsController < ApplicationController
     end
 
     def create
-        job = Job.create(title: job_params[:title], description: job_params[:description], length: job_params[:length], pay: job_params[:pay], date: job_params[:date], accept_status: job_params[:accept_status], completed: job_params[:completed], user_id: job_params[:user_id], time: job_params[:time])
-        JobCategory.create(job_id: job.id, category_id: job_params[:category_id], address: job_params[:address])
+        job = Job.create(title: job_params[:title], description: job_params[:description], length: job_params[:length], pay: job_params[:pay], date: job_params[:date], accept_status: job_params[:accept_status], completed: job_params[:completed], user_id: job_params[:user_id], time: job_params[:time], address: job_params[:address])
+        
+        JobCategory.create(job_id: job.id, category_id: job_params[:category_id])
+        if job.valid?
         render json: job
+        else
+            render json: {errors: job.errors.full_messages}
+        end
     end
 
     def update
